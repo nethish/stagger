@@ -43,11 +43,15 @@ const colors = [
     "rgb(253, 216, 53)"
 ]
 
+let toggled = false;
+
 const handleOnClick = index => {
+    toggled = !toggled;
     count = count + 1;
     anime({
         targets: ".tile",
-        backgroundColor: colors[count % (colors.length - 1)],
+        opacity: toggled? 0: 1,
+        // backgroundColor: colors[count % (colors.length - 1)],
         delay: anime.stagger(50, {
             grid: [columns, rows],
             from: index
@@ -62,6 +66,5 @@ const handleOnClick = index => {
             from: 0
           })
     })
-    
 }
 
